@@ -121,7 +121,7 @@ SMODS.Booster({
         choose = 2,
         extra = 5,
     },
-    cost = 4,
+    cost = 8,
     weight = 1,
     kind = "TheSeals",
     group_key = "k_sealsplus_booster_group",
@@ -132,4 +132,5 @@ SMODS.Booster({
             skip_materialize = true,
         }
     end,
+
 })
