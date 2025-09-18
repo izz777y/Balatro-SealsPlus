@@ -50,7 +50,11 @@ SMODS.Seal {
     pos = { x = 0, y = 0 },
     atlas = "sealsplus2_atlas",
     badge_colour = G.C.DARK_EDITION,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { G.GAME.probabilities.normal} }
+    end,
     calculate = function(self, card, context)
+    if  pseudorandom('jade') < G.GAME.probabilities.normal / 3 then
        if context.cardarea == G.play and context.main_scoring then
         G.GAME.LAST_TRIGGERED_SEAL = 'sealsplus_Jade'
             G.E_MANAGER:add_event(Event({
@@ -64,6 +68,7 @@ SMODS.Seal {
             }))
             return { message = localize('k_plus_tarot'), colour = G.C.Jade }
         end
+    end
     end
 }
 
@@ -447,7 +452,6 @@ SMODS.Seal {
     pos = { x = 0, y = 0 },
     atlas = "sealsplus13_atlas",
     badge_colour = G.C.DARK_EDITION,
-    config = { extra = { retriggers = 1 } },
     calculate = function(self, card, context)
        if context.cardarea == G.play and context.main_scoring then
             G.E_MANAGER:add_event(Event({
@@ -460,12 +464,6 @@ SMODS.Seal {
                 end
             }))
         end
-        if context.repetition then
-            return {
-                repetitions = card.ability.seal.extra.retriggers,
-            }
-        end
-        return { vars = { self.config.extra.retriggers },  colour = G.C.Jade }
     end,
     
 }
@@ -597,7 +595,11 @@ SMODS.Seal {
     pos = { x = 0, y = 0 },
     atlas = "sealsplus17_atlas",
     badge_colour = G.C.DARK_EDITION,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { G.GAME.probabilities.normal} }
+    end,
     calculate = function(self, card, context)
+    if  pseudorandom('jade') < G.GAME.probabilities.normal / 3 then
        if context.cardarea == G.play and context.main_scoring then
         G.GAME.LAST_TRIGGERED_SEAL = 'sealsplus_Jade'
             G.E_MANAGER:add_event(Event({
@@ -615,6 +617,7 @@ SMODS.Seal {
             return { message = localize('k_plus_tarot'), colour = G.C.Blue }
         end
     end
+end
 }
 
 -- Gold Spectral Seal
@@ -724,7 +727,11 @@ SMODS.Seal {
     pos = { x = 0, y = 0 },
     atlas = "sealsplus20_atlas",
     badge_colour = G.C.DARK_EDITION,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { G.GAME.probabilities.normal} }
+    end,
     calculate = function(self, card, context)
+    if  pseudorandom('jade') < G.GAME.probabilities.normal / 3 then
        if context.cardarea == G.play and context.main_scoring then
         G.GAME.LAST_TRIGGERED_SEAL = 'sealsplus_Jade'
             G.E_MANAGER:add_event(Event({
@@ -739,6 +746,7 @@ SMODS.Seal {
             return { message = localize('k_plus_tarot'), colour = G.C.Blue }
         end
     end
+end
 }
 
 -- Blue Spectral Seal
@@ -796,7 +804,11 @@ SMODS.Seal {
     pos = { x = 0, y = 0 },
     atlas = "sealsplus22_atlas",
     badge_colour = G.C.DARK_EDITION,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { G.GAME.probabilities.normal} }
+    end,
     calculate = function(self, card, context)
+    if  pseudorandom('jade') < G.GAME.probabilities.normal / 3 then
        if context.cardarea == G.play and context.main_scoring then
         G.GAME.LAST_TRIGGERED_SEAL = 'sealsplus_Jade'
             G.E_MANAGER:add_event(Event({
@@ -811,6 +823,7 @@ SMODS.Seal {
             return { message = localize('k_plus_tarot'), colour = G.C.Blue }
         end
     end
+end
 }
 
 -- Purple Spectral Seal
