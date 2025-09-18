@@ -2,12 +2,14 @@
 
 a mod that adds the following:
 
-**1)** 	3 new seals:
+**1)** 3 new seals:
+   
+**Blank seal**
 
-**Blank seal**,
-**Jade seal**,
+**Jade seal**
+
 **Spectral seal**
-	 
-**2)** 	The ability to merge seals which results in compined seals, with compination variants reaching 21 compination of seals
 
-**3)** 	11 new jokers with seal orinted mechanincs 
+**2)** The ability to merge seals which results in combined seals, with combination variants reaching 21 combination of seals
+   
+**3)** 11 new jokers with seal oriented mechanics
