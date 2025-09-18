@@ -126,7 +126,7 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
             sealsplus_jade_seal = {
                 name = "Jade Seal",
                 text = {
-                    "Gives a {C:dark_edition}Negative{} random {C:planet}Planet{}",
+                    "{C:green}#1# in 3{} chance to Give a {C:dark_edition}Negative{} random {C:planet}Planet{}",
                     "or {C:tarot}Tarot{} when this",
                     "card is played and scores",
                 },
@@ -224,7 +224,7 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
             sealsplus_redjade_seal = {
                 name = "Red Jade Seal",
                 text = {
-                    "Gives {C:attention}2{} {C:dark_edition}Negative{} random {C:planet}Planet{}",
+                    "Gives a {C:dark_edition}Negative{} random {C:planet}Planet{}",
                     "or {C:tarot}Tarot{} when this",
                     "card is played and scores",
                 },
@@ -263,7 +263,7 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
             sealsplus_goldjade_seal = {
                 name = "Gold Jade Seal",
                 text = {
-                    "Gives a {C:dark_edition}Negative{} {C:tarot}Hermit{} or {C:tarot}Temperance{}",
+                    "{C:green}#1# in 3{} chance to Give a {C:dark_edition}Negative{} {C:tarot}Hermit{} or {C:tarot}Temperance{}",
                     "when this card is played and scores",
                 },
                 
@@ -292,7 +292,7 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
             sealsplus_bluejade_seal = {
                 name = "Blue Jade Seal",
                 text = {
-                    "Gives a {C:dark_edition}Negative{} {C:tarot}High Priestess{}",
+                    "{C:green}#1# in 3{} chance to Give a {C:dark_edition}Negative{} {C:tarot}High Priestess{}",
                     "when this card is played and scores",
                 },
                 
@@ -309,7 +309,7 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
             sealsplus_purplejade_seal = {
                 name = "Purple Jade Seal",
                 text = {
-                    "Gives a {C:dark_edition}Negative{} {C:tarot}Emperor{}",
+                    "{C:green}#1# in 3{} chance to Give a {C:dark_edition}Negative{} {C:tarot}Emperor{}",
                     "when this card is played and scores",
                 },
                 
