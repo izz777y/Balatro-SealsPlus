@@ -6,6 +6,6 @@
   "prefix": "sealsplus",
   "main_file": "main.lua",
   "badge_colour": "7851A9",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "dependencies": ["Steamodded (>=1.0.0~BETA-0711a)"]
 }
