@@ -119,8 +119,9 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
             sealsplus_blank_seal = {
                 name = "Blank Seal",
                 text = {
-                    "After {C:attention}10{} triggers",
-                    "gain a {C:spectral}Soul{}",
+                    "After {C:attention}???{} triggers",
+                    "gain a {C:spectral}$O?L#%{}",
+                    "{C:inactive}(Currently {C:attention}#1#{} triggers)",
                 },
             },
             sealsplus_jade_seal = {
