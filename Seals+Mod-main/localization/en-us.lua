@@ -121,7 +121,7 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
                 text = {
                     "After {C:attention}???{} triggers",
                     "gain a {C:spectral}$O?L#%{}",
-                    "{C:inactive}(Currently {C:attention}#1#{} triggers)",
+                    "{C:inactive}(Currently {C:attention}#1# {C:inactive}triggers)",
                 },
             },
             sealsplus_jade_seal = {
@@ -403,4 +403,5 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
         }
     },
 }
+
 
