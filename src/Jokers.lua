@@ -239,7 +239,7 @@ SMODS.Joker {
         end
         if context.joker_main then
             return {
-                chips = card.ability.extra.xmult
+                xmult = card.ability.extra.xmult
             }
         end
 end 
