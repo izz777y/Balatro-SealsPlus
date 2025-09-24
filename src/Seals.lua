@@ -14,13 +14,18 @@ SMODS.Seal {
   config = { extra = { trigger_count = 0 } },
     calculate = function(self, card, context)
         if context.cardarea == G.play and context.main_scoring then
-        -- Increment the trigger count each time this seal is triggered
-        card.ability.seal.extra.trigger_count = (card.ability.seal.extra.trigger_count or 0) + 1
-        -- Check if reached 50 triggers
-        if card.ability.seal.extra.trigger_count >= 10 then
-            -- Add a Spectral Soul card to consumeables
-            SMODS.add_card({ key = "c_soul", area = G.consumeables })
-            card.ability.seal.extra.trigger_count = 0 -- Reset count
+            -- Initialize trigger_goal if not set
+            if not card.ability.seal.extra.trigger_goal then
+                card.ability.seal.extra.trigger_goal = pseudorandom('blankseal', 8, 12)
+            end
+            -- Increment the trigger count each time this seal is triggered
+            card.ability.seal.extra.trigger_count = (card.ability.seal.extra.trigger_count or 0) + 1
+            -- Check if reached the random trigger goal
+            if card.ability.seal.extra.trigger_count >= card.ability.seal.extra.trigger_goal then
+                SMODS.add_card({ key = "c_soul", area = G.consumeables })
+                local old_goal = card.ability.seal.extra.trigger_goal
+                card.ability.seal.extra.trigger_count = 0 -- Reset count
+                card.ability.seal.extra.trigger_goal = pseudorandom('blankseal', 8, 12) -- New random goal
             return {
                 message = "Soul gained!",
                 colour = G.C.Spectral
@@ -28,7 +33,7 @@ SMODS.Seal {
         end
         return {
             message = "Triggered " .. tostring(card.ability.seal.extra.trigger_count) .. " times",
-            colour = G.C.white
+            colour = G.C.Spectral
         }
         end
     end,
@@ -108,7 +113,10 @@ SMODS.Seal {
         end
         if context.destroying_card and context.destroying_card == card then
             if pseudorandom('spec') < G.GAME.probabilities.normal/6 then
-            return {remove = true}
+            return {
+                message = "Destroyed",
+                colour = G.C.Spectral
+            ,remove = true}
             end
             delay(0.3)
         end
@@ -258,7 +266,7 @@ SMODS.Seal {
                             return true
                         end
                     }))
-                return { message = localize('k_plus_tarot'), colour = G.C.Jade }  
+                return { message = "+ ".. tostring(G.GAME.last_tarot_planet) .. "", colour = G.C.Purple }  
             end
         end
     end
@@ -290,7 +298,7 @@ SMODS.Seal {
                 func = function()
                     SMODS.add_card({ key = 'c_cryptid' , area = G.consumeables })
                     G.GAME.consumeable_buffer = 0
-                    return true
+                    return {message = "+ Cryptid",  colour = G.C.Spectral}
                 end
                 
             }))
@@ -299,7 +307,7 @@ SMODS.Seal {
         if context.destroying_card and context.destroying_card == card then
             if pseudorandom('spec') < G.GAME.probabilities.normal/6 then
             return {remove = true,
-        message = localize('k_plus_tarot'), colour = G.C.Spectral}
+            message = "Destroyed", colour = G.C.Spectral}
             end
             delay(0.3)
         end
@@ -460,7 +468,7 @@ SMODS.Seal {
                 func = function()
                     SMODS.add_card({ set = "Tarot_Planet",edition = "e_negative", area = G.consumeables })
                     G.GAME.consumeable_buffer = 0
-                    return true
+                    return {message = "+1 tarot/planet", colour = G.C.PURPLE}
                 end
             }))
         end
@@ -494,14 +502,15 @@ SMODS.Seal {
                 func = function()
                     SMODS.add_card({ set = "Spectral", area = G.consumeables })
                     G.GAME.consumeable_buffer = 0
-                    return true
+                    return {message = "+ Spectral", colour = G.C.Spectral }
                 end
                 
             }))
         end
         if context.destroying_card and context.destroying_card == card then
             if pseudorandom('spec') < G.GAME.probabilities.normal/6 then
-            return {remove = true,}
+            return {remove = true,
+            message = "Destroyed", colour = G.C.Spectral}
             end
             delay(0.3)
         end
@@ -614,7 +623,7 @@ SMODS.Seal {
                 end
             end
             }))
-            return { message = localize('k_plus_tarot'), colour = G.C.Blue }
+            return { message = localize('k_plus_tarot'), colour = G.C.PURPLE }
         end
     end
 end
@@ -647,7 +656,7 @@ SMODS.Seal {
                 func = function()
                     SMODS.add_card({ key = "c_immolate", area = G.consumeables })
                     G.GAME.consumeable_buffer = 0
-                    return true
+                    return {message =  "+ Immolate", colour = G.C.Spectral}
                 end
                 
             }))
@@ -656,7 +665,7 @@ SMODS.Seal {
         if context.destroying_card and context.destroying_card == card then
             if pseudorandom('spec') < G.GAME.probabilities.normal/6 then
             return {remove = true,
-        message = localize('k_plus_tarot'), colour = G.C.Spectral}
+            message = "Destroyed", colour = G.C.Spectral}
             end
             delay(0.3)
         end
@@ -743,7 +752,7 @@ SMODS.Seal {
                     return true
                 end
             }))
-            return { message = localize('k_plus_tarot'), colour = G.C.Blue }
+            return { message = localize('k_plus_tarot'), colour = G.C.PURPLE }
         end
     end
 end
@@ -776,7 +785,7 @@ SMODS.Seal {
                 func = function()
                     SMODS.add_card({ key = "c_black_hole", area = G.consumeables })
                     G.GAME.consumeable_buffer = 0
-                    return true
+                    return {message = "+ Black Hole", colour = G.C.Spectral}
                 end
                 
             }))
@@ -785,7 +794,7 @@ SMODS.Seal {
         if context.destroying_card and context.destroying_card == card then
             if pseudorandom('spec') < G.GAME.probabilities.normal/6 then
             return {remove = true,
-        message = localize('k_plus_tarot'), colour = G.C.Spectral}
+            message = "Destroyed", colour = G.C.Spectral}
             end
             delay(0.3)
         end
@@ -820,7 +829,7 @@ SMODS.Seal {
                     return true
                 end
             }))
-            return { message = localize('k_plus_tarot'), colour = G.C.Blue }
+            return { message = localize('k_plus_tarot'), colour = G.C.PURPLE }
         end
     end
 end
@@ -853,7 +862,7 @@ SMODS.Seal {
                 func = function()
                     SMODS.add_card({ key = "c_aura", area = G.consumeables })
                     G.GAME.consumeable_buffer = 0
-                    return true
+                    return {message = "+ Aura", colour = G.C.Spectral}
                 end
                 
             }))
@@ -862,7 +871,7 @@ SMODS.Seal {
         if context.destroying_card and context.destroying_card == card then
             if pseudorandom('spec') < G.GAME.probabilities.normal/6 then
             return {remove = true,
-        message = localize('k_plus_tarot'), colour = G.C.Spectral}
+        message = "Destroyed", colour = G.C.Spectral}
             end
             delay(0.3)
         end
@@ -896,7 +905,7 @@ SMODS.Seal {
                 func = function()
                     SMODS.add_card({ key = "c_wraith", area = G.consumeables })
                     G.GAME.consumeable_buffer = 0
-                    return true
+                    return {message = "+ Wraith", colour = G.C.Spectral}
                 end
                 
             }))
@@ -905,7 +914,7 @@ SMODS.Seal {
         if context.destroying_card and context.destroying_card == card then
             if pseudorandom('spec') < G.GAME.probabilities.normal/6 then
             return {remove = true,
-        message = localize('k_plus_tarot'), colour = G.C.Spectral}
+        message = "Destroyed", colour = G.C.Spectral}
             end
             delay(0.3)
         end

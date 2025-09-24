@@ -14,7 +14,7 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
             j_sealsplus_waxjoker = {
                 name = "Wax Joker",
                 text = {
-                    "trigger played or in hand seals {C:attention}1{} more time",
+                    "Trigger played or in hand seals {C:attention}1{} more time",
                     "{C:green}#1# in #2#{} chance this",
                     "card is melted",
                 }
@@ -22,7 +22,7 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
             j_sealsplus_sealjoker = {
                 name = "Seal Seal",
                 text = {
-                    "gains {X:chips,C:white} +3 {} chips for every played seal",
+                    "Gains {X:chips,C:white} +3 {} chips for every played seal",
                     "{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)"
                 }
             },
@@ -36,7 +36,7 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
             j_sealsplus_rowlandhill = {
                 name = "Rowland Hill",
                 text = {
-                   "This Joker gains {X:mult,C:white} X0.25 {} Mult",
+                   "This joker gains {X:mult,C:white} X0.25 {} Mult",
                     "for every {C:attention}seal{} played",
                     "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
                 }
@@ -44,9 +44,10 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
             j_sealsplus_forgery = {
                 name = "Forgery",
                 text = {
-                   "This Joker gives {C:money}1${} for ",
+                    "Earn {C:money}$#1#{} at",
+                    "end of round for",
                     "every seal in deck",
-                    "{C:inactive}(Currently {C:money}+#2#${C:inactive} )",
+                    "{C:inactive}(Currently {C:money}$#2#{C:inactive} )",
                 }
             },
             j_sealsplus_hoarder = {
@@ -75,15 +76,19 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
             j_sealsplus_sealthedeal = {
                 name = "Seal the Deal",
                 text = {
-                    "{C:mult}X1.5{} mult for every",
-                    "played and scored seal",
+                    "Each played card with",
+                    "a seal gives",
+                    "{X:mult,C:white} X1.5 {} Mult when scored",
+                    
                 }
             },
             j_sealsplus_invitation = {
                 name = "Invitation",
                 text = {
-                    "{C:mult}X1.5{} mult for every",
-                    "seal in hand",
+                    "Each {C:attention}seal{}",
+                    "held in hand",
+                    "gives {X:mult,C:white} X1.5 {} Mult",
+                    
                 }
             },
 
@@ -121,7 +126,7 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
                 name = "Blank Seal",
                 text = {
                     "After {C:attention}???{} triggers",
-                    "gain a {C:spectral}$O?L#%{}",
+                    "gain a {C:spectral}$O?L{}",
                     "{C:inactive}(Currently {C:attention}#1# {C:inactive}triggers)",
                 },
             },
